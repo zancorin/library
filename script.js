@@ -19,30 +19,7 @@ function addBookToLibrary (title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
     
-    const tr = document.createElement("tr");
-    const thTitle = document.createElement("th");
-    const tdAuthor = document.createElement("td");
-    const tdPages = document.createElement("td");
-    const tdRead = document.createElement("td");
 
-    /*
-    th.setAttribute("scope", "row");
-    tbody.appendChild(tr);
-    tr.appendChild(th);
-    th.textContent = "title";
-    tr.appendChild(td);
-    td.textContent = "gsgsg";
-    */
-   tbody.appendChild(tr);
-   tr.appendChild(thTitle);//, tdAuthor, tdPages, tdRead);
-   thTitle.setAttribute("scope", "row");
-   tr.appendChild(tdAuthor);
-   tr.appendChild(tdPages);
-   tr.appendChild(tdRead);
-   thTitle.textContent = title;
-   tdAuthor.textContent = author;
-   tdPages.textContent = pages;
-   tdRead.textContent = read;
 
 
   /*  td.textContent = author;*/
@@ -55,7 +32,30 @@ addBookToLibrary("Dune", "Frank Herbert", 50000, "read")
 /*console.log(myLibrary[0]);*/
 function displayBooks () {
     myLibrary.forEach((book) => {
-        console.log(book);
+        const tr = document.createElement("tr");
+        const thTitle = document.createElement("th");
+        const tdAuthor = document.createElement("td");
+        const tdPages = document.createElement("td");
+        const tdRead = document.createElement("td");
+    
+        /*
+        th.setAttribute("scope", "row");
+        tbody.appendChild(tr);
+        tr.appendChild(th);
+        th.textContent = "title";
+        tr.appendChild(td);
+        td.textContent = "gsgsg";
+        */
+       tbody.appendChild(tr);
+       tr.appendChild(thTitle);//, tdAuthor, tdPages, tdRead);
+       thTitle.setAttribute("scope", "row");
+       tr.appendChild(tdAuthor);
+       tr.appendChild(tdPages);
+       tr.appendChild(tdRead);
+       thTitle.textContent = book.title;
+       tdAuthor.textContent = book.author;
+       tdPages.textContent = book.pages;
+       tdRead.textContent = book.read;
     });
 }
 displayBooks();
