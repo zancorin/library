@@ -20,8 +20,10 @@ function addBookToLibrary (title, author, pages, read) {
     myLibrary.push(book);
     
     const tr = document.createElement("tr");
-    const th = document.createElement("th");
-    const td = document.createElement("td");
+    const thTitle = document.createElement("th");
+    const tdAuthor = document.createElement("td");
+    const tdPages = document.createElement("td");
+    const tdRead = document.createElement("td");
 
     /*
     th.setAttribute("scope", "row");
@@ -32,9 +34,16 @@ function addBookToLibrary (title, author, pages, read) {
     td.textContent = "gsgsg";
     */
    tbody.appendChild(tr);
-   tr.appendChild(th);
-   th.setAttribute("scope", "row");
-   th.textContent="anything";
+   tr.appendChild(thTitle);//, tdAuthor, tdPages, tdRead);
+   thTitle.setAttribute("scope", "row");
+   tr.appendChild(tdAuthor);
+   tr.appendChild(tdPages);
+   tr.appendChild(tdRead);
+   thTitle.textContent = title;
+   tdAuthor.textContent = author;
+   tdPages.textContent = pages;
+   tdRead.textContent = read;
+
 
   /*  td.textContent = author;*/
 }
