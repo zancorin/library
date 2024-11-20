@@ -37,15 +37,9 @@ function displayBooks () {
         const tdAuthor = document.createElement("td");
         const tdPages = document.createElement("td");
         const tdRead = document.createElement("td");
+        const tdBtn = document.createElement("td");
+        const btn = document.createElement("button");
     
-        /*
-        th.setAttribute("scope", "row");
-        tbody.appendChild(tr);
-        tr.appendChild(th);
-        th.textContent = "title";
-        tr.appendChild(td);
-        td.textContent = "gsgsg";
-        */
        tbody.appendChild(tr);
        tr.appendChild(thTitle);//, tdAuthor, tdPages, tdRead);
        thTitle.setAttribute("scope", "row");
@@ -56,6 +50,10 @@ function displayBooks () {
        tdAuthor.textContent = book.author;
        tdPages.textContent = book.pages;
        tdRead.textContent = book.read;
+       tr.appendChild(tdBtn);
+       btn.textContent = "Delete";
+       tdBtn.appendChild(btn);
+     //  btn.style("text-align", "center");
     });
 }
 displayBooks();
