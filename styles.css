@@ -1,7 +1,7 @@
 html {
     font-family: sans-serif;
   }
-  
+  /*TABLE STYLING*/
   table {
     border-collapse: collapse;
     border: 2px solid rgb(200,200,200);
@@ -32,4 +32,19 @@ html {
   
   caption {
     padding: 10px;
+  }
+
+  /*------------*/
+
+  /*Main layout*/
+
+  .mainContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #addBookBtn {
+    width:150px;
   }
