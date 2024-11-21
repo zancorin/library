@@ -50,6 +50,7 @@ html {
     width:150px;
   }
 
+  /*Modal Dialog*/
   dialog::backdrop {
     background-image: linear-gradient(
       45deg,
@@ -58,3 +59,45 @@ html {
     );
     opacity: 0.75;
   }
+
+  .mainFormContainer {
+    display:flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    gap:20px;
+   /* text-align: center;*/
+  }
+
+  .mainFormContainer > div {
+    display:flex;
+    flex-direction: row;
+    /*justify-content: flex-start;*/
+    gap:25px;
+    /*text-align: left;*/
+    /*text-align: left;*/
+  }
+
+  /*
+  .formPagesContainer > input,
+  .readPagesContainer > input {
+    align-self: center;
+  }
+  */
+  label {
+    width:75px;
+    text-align: center;
+  }
+  
+  .formTitleContainer,
+  .formAuthorContainer,
+  .formPagesContainer {
+
+  }
+/*
+  label {
+    width:100px;
+  }
+  input {
+    width:100px;
+  }
+  */
