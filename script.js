@@ -24,10 +24,6 @@ function addBookToLibrary (title, author, pages, read) {
     tbody.replaceChildren();
     displayBooks();
     
-
-
-
-  /*  td.textContent = author;*/
 }
 
 addBookToLibrary("Game of Thrones", "George R.R. Martin", 5000, "read")
@@ -36,10 +32,7 @@ addBookToLibrary("Dune", "Frank Herbert", 50000, "read")
 
 /*console.log(myLibrary[0]);*/
 function displayBooks () {
-    console.log(myLibrary.length)
-    //delete all children of tablebody and recreate them
-   // tbody.replaceChildren();
-   // myLibrary.indexOf
+    //console.log(myLibrary.length);
     myLibrary.forEach((book) => {
         const tr = document.createElement("tr");
         const thTitle = document.createElement("th");
@@ -50,7 +43,7 @@ function displayBooks () {
         const btn = document.createElement("button");
     
        tbody.appendChild(tr);
-       tr.appendChild(thTitle);//, tdAuthor, tdPages, tdRead);
+       tr.appendChild(thTitle);
        thTitle.setAttribute("scope", "row");
        tr.appendChild(tdAuthor);
        tr.appendChild(tdPages);
@@ -61,20 +54,13 @@ function displayBooks () {
        tdRead.setAttribute("class", "read")
        tdRead.style.backgroundColor="green";
 
-     //  tdRead.style.backgroundColor("green");
        tdRead.textContent = book.read;
        tr.appendChild(tdBtn);
        btn.textContent = "Delete";
        tdBtn.appendChild(btn);
-
-       //displayBooks();
-     //  btn.style("text-align", "center");
     });
 }
-//read.style.backgroundColor="green";
-//document.getElementById("read").style.backgroundColor="green";
-/*const read = document.querySelector(".read");
-read.style.backgroundColor = "green";*/
+
 function openDialogModal() {
     
 }
@@ -100,35 +86,15 @@ submitButton.addEventListener("click", (event) => {
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
     const read = document.getElementById("read").value;
-    //
-
-    //
-        console.log(title);
         
-        addBookToLibrary(title, author, pages, read);
+    addBookToLibrary(title, author, pages, read);
 
-    //console.log("event default prevented");
     dialog.close();
-    resetFormFields(title, author, pages, read);
+
+    resetFormFields();
 })
 
-function resetFormFields(title, author, pages, read)
+function resetFormFields()
 {
-    /*
-    const titleContainer = document.getElementById("title").value.parentElement;
-    const authorContainer = document.getElementById("author").value.parentElement;
-    const pagesContainer = document.getElementById("pages").value.parentElement;
-    const readContainer = document.getElementById("read").value.parentElement;
-
-    title.textContent = '';
-    author.textContent = '';
-    pages.textContent = '';
-    read.removeAttribute('checked'); 
-    titleContainer.appendChild(title);
-    authorContainer.appendChild(author);
-    pagesContainer.appendChild(pages);
-    readContainer.appendChild(read);
-    */
-
     document.getElementById("addBookForm").reset();
 }

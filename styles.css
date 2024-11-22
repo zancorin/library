@@ -68,18 +68,13 @@ html {
   .mainFormContainer {
     display:flex;
     flex-direction: column;
-    /*justify-content: center;*/
     gap:20px;
-   /* text-align: center;*/
   }
 
   .mainFormContainer > div {
     display:flex;
     flex-direction: row;
-    /*justify-content: flex-start;*/
     gap:25px;
-    /*text-align: left;*/
-    /*text-align: left;*/
   }
 
   .closeBtnContainer {
@@ -88,12 +83,6 @@ html {
     justify-content: flex-end;
   }
 
-  /*
-  .formPagesContainer > input,
-  .readPagesContainer > input {
-    align-self: center;
-  }
-  */
   label {
     width:75px;
     text-align: center;
@@ -107,22 +96,3 @@ html {
   dialog {
     background-color: rgb(235, 235, 235);
   }
-  .formTitleContainer,
-  .formAuthorContainer,
-  .formPagesContainer {
-
-  }
-/*
-  label {
-    width:100px;
-  }
-  input {
-    width:100px;
-  }
-  */
-
-  /*
-  #closeBtn {
-    align-self: flex-end;
-  }
-  */
