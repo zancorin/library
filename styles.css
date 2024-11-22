@@ -1,3 +1,8 @@
+h2{
+  margin-bottom:5px;
+  margin-top: 0;
+  text-align: center;
+}
 html {
     font-family: sans-serif;
   }
@@ -77,6 +82,12 @@ html {
     /*text-align: left;*/
   }
 
+  .closeBtnContainer {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
   /*
   .formPagesContainer > input,
   .readPagesContainer > input {
@@ -87,7 +98,15 @@ html {
     width:75px;
     text-align: center;
   }
+  .submitBtnContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   
+  dialog {
+    background-color: rgb(235, 235, 235);
+  }
   .formTitleContainer,
   .formAuthorContainer,
   .formPagesContainer {
@@ -99,5 +118,11 @@ html {
   }
   input {
     width:100px;
+  }
+  */
+
+  /*
+  #closeBtn {
+    align-self: flex-end;
   }
   */
