@@ -1,5 +1,7 @@
 const tbody = document.querySelector("tbody");
 
+let currentbookCount = 3;
+let newBookCount = 3;
 
 
 const myLibrary = [];
@@ -16,8 +18,11 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary (title, author, pages, read) {
 
+    newBookCount++;
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    tbody.replaceChildren();
+    displayBooks();
     
 
 
@@ -31,6 +36,10 @@ addBookToLibrary("Dune", "Frank Herbert", 50000, "read")
 
 /*console.log(myLibrary[0]);*/
 function displayBooks () {
+    console.log(myLibrary.length)
+    //delete all children of tablebody and recreate them
+   // tbody.replaceChildren();
+   // myLibrary.indexOf
     myLibrary.forEach((book) => {
         const tr = document.createElement("tr");
         const thTitle = document.createElement("th");
@@ -57,12 +66,13 @@ function displayBooks () {
        tr.appendChild(tdBtn);
        btn.textContent = "Delete";
        tdBtn.appendChild(btn);
+
+       //displayBooks();
      //  btn.style("text-align", "center");
     });
 }
 //read.style.backgroundColor="green";
 //document.getElementById("read").style.backgroundColor="green";
-displayBooks();
 /*const read = document.querySelector(".read");
 read.style.backgroundColor = "green";*/
 function openDialogModal() {
@@ -71,7 +81,8 @@ function openDialogModal() {
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("#addBookBtn");
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.querySelector("#closeBtn");
+const submitButton = document.querySelector("#submitBtn");
 
 // "Show the dialog" button opens the dialog modally
 showButton.addEventListener("click", () => {
@@ -82,3 +93,42 @@ showButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
   dialog.close();
 });
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const read = document.getElementById("read").value;
+    //
+
+    //
+        console.log(title);
+        
+        addBookToLibrary(title, author, pages, read);
+
+    //console.log("event default prevented");
+    dialog.close();
+    resetFormFields(title, author, pages, read);
+})
+
+function resetFormFields(title, author, pages, read)
+{
+    /*
+    const titleContainer = document.getElementById("title").value.parentElement;
+    const authorContainer = document.getElementById("author").value.parentElement;
+    const pagesContainer = document.getElementById("pages").value.parentElement;
+    const readContainer = document.getElementById("read").value.parentElement;
+
+    title.textContent = '';
+    author.textContent = '';
+    pages.textContent = '';
+    read.removeAttribute('checked'); 
+    titleContainer.appendChild(title);
+    authorContainer.appendChild(author);
+    pagesContainer.appendChild(pages);
+    readContainer.appendChild(read);
+    */
+
+    document.getElementById("addBookForm").reset();
+}
