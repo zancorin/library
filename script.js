@@ -14,6 +14,26 @@ function Book(title, author, pages, read) {
     this.info = function() {
         return(this.title + " by " + this.author + ", " + this.pages + " pages, " + read);
     };
+    this.changeReadStatus = function() {
+        console.log(this.read);
+        if(this.read === "true")
+        {
+            this.read = "false";
+        }
+        else if(this.read === "false"){
+            this.read = "true";
+        }
+        console.log(this.read);
+       // console.log(this.read);
+        //this.read = !(this.read);
+       // console.log(this.read);
+       // return(this.read);
+       /* console.log(this.read);
+        this.read = !(this.read);
+        console.log(this.read);*/
+        //return(!this.read);
+    }
+    
 }
 
 function addBookToLibrary (title, author, pages, read) {
@@ -26,9 +46,9 @@ function addBookToLibrary (title, author, pages, read) {
     
 }
 
-addBookToLibrary("Game of Thrones", "George R.R. Martin", 5000, "read")
-addBookToLibrary("Lord of the Rings", "J.R.R. Tolkien", 2000, "read")
-addBookToLibrary("Dune", "Frank Herbert", 50000, "read")
+addBookToLibrary("Game of Thrones", "George R.R. Martin", 5000, "true")
+addBookToLibrary("Lord of the Rings", "J.R.R. Tolkien", 2000, "false")
+addBookToLibrary("Dune", "Frank Herbert", 50000, "true")
 
 /*console.log(myLibrary[0]);*/
 function displayBooks () {
@@ -52,18 +72,36 @@ function displayBooks () {
        tdAuthor.textContent = book.author;
        tdPages.textContent = book.pages;
        tdRead.setAttribute("class", "read")
-       tdRead.style.backgroundColor="green";
+       //tdRead.style.backgroundColor="green";
 
        tdRead.textContent = book.read;
        tr.appendChild(tdBtn);
        btn.textContent = "Delete";
        tdBtn.appendChild(btn);
 
+       if(book.read==="true")
+       {
+           tdRead.style.backgroundColor="green";
+       }
+       else {
+           tdRead.style.backgroundColor="red";
+       }
        tdRead.addEventListener("mouseover", (event) => {
         tdRead.style.cursor="pointer";
        })
        tdRead.addEventListener("click", (event) => {
-        tdRead.style.backgroundColor="red";
+       // console.log(book.changeReadStatus());
+       
+       book.changeReadStatus();
+       tdRead.textContent = book.read;
+       console.log("book.read= " + book.read);
+        if(book.read==="true")
+        {
+            tdRead.style.backgroundColor="green";
+        }
+        else {
+            tdRead.style.backgroundColor="red";
+        }
        })
 
        tdBtn.addEventListener("click", (event) => {
@@ -115,7 +153,16 @@ submitButton.addEventListener("click", (event) => {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    const read = document.getElementById("read").value;
+    let read = document.getElementById("read").checked;
+    console.log(read);
+    if(read === true)
+    {
+        read = "true";
+    }
+    else {
+        read = "false";
+    }
+
         
     addBookToLibrary(title, author, pages, read);
 
