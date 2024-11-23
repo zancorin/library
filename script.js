@@ -59,6 +59,13 @@ function displayBooks () {
        btn.textContent = "Delete";
        tdBtn.appendChild(btn);
 
+       tdRead.addEventListener("mouseover", (event) => {
+        tdRead.style.cursor="pointer";
+       })
+       tdRead.addEventListener("click", (event) => {
+        tdRead.style.backgroundColor="red";
+       })
+
        tdBtn.addEventListener("click", (event) => {
         console.log("delete this row");
         const index = Array.from(tr.parentNode.children).indexOf(tr);
