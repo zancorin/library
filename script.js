@@ -58,12 +58,35 @@ function displayBooks () {
        tr.appendChild(tdBtn);
        btn.textContent = "Delete";
        tdBtn.appendChild(btn);
+
+       tdBtn.addEventListener("click", (event) => {
+        console.log("delete this row");
+        const index = Array.from(tr.parentNode.children).indexOf(tr);
+        console.log(Array.from(tr.parentNode.children).indexOf(tr));
+        removeFromArray(index);
+        removeFromDom(tr);
+
+        //get child index
+       // console.log(myLibrary.from(tr.parentNode.children).indexOf(tr));
+        //const index = myLibrary.from(tr.parentNode.children).indexOf(tr);
+        //removeFromArray(index);
+       // tr.remove();
+       })
     });
+}
+
+function removeFromDom(tr) {
+    tr.remove();  
+}
+
+function removeFromArray (index) {
+    myLibrary.splice(index, 1);
 }
 
 function openDialogModal() {
     
 }
+
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("#addBookBtn");
